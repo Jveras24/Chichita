@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="loop.time: boutique de relojes para mujeres, hombres y adolescentes. Compra en línea con carrito y asesoría personalizada."
+    />
+    <meta property="og:title" content="loop.time | Boutique de relojes" />
+    <meta
+      property="og:description"
+      content="Relojes elegantes y deportivos en pesos dominicanos (DOP)."
+    />
+    <title>loop.time | Boutique de relojes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="topbar glass fade-in-down">
+      <a class="brand" href="#inicio">loop<span>.time</span></a>
+      <nav class="menu">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#asesoria">Asesoría</a>
+      </nav>
+      <div class="actions">
+        <button id="loginBtn" class="btn btn-outline">Iniciar sesión</button>
+        <button id="cartBtn" class="btn btn-primary cart-button">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span>Carrito (<span id="cartCount">0</span>)</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero reveal">
+        <div>
+          <p class="chip">Boutique premium de relojes</p>
+          <h1>Elegancia en cada segundo</h1>
+          <p>
+            Descubre relojes para <strong>mujeres</strong>, <strong>hombres</strong> y
+            <strong>adolescentes</strong>, desde estilos <strong>formales</strong> hasta
+            <strong>deportivos</strong>.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn-outline" href="#asesoria">Asesoría personalizada</a>
+          </div>
+        </div>
+        <img
+          src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1200&q=80"
+          alt="Reloj de lujo en muñeca"
+          class="hero-image"
+          loading="lazy"
+        />
+      </section>
+
+      <section id="colecciones" class="section reveal">
+        <h2>Nuestras colecciones</h2>
+        <div class="collections">
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=80"
+              alt="Colección formal"
+              loading="lazy"
+            />
+            <div>
+              <h3>Formal Signature</h3>
+              <p>Líneas finas, acabados premium y presencia impecable.</p>
+            </div>
+          </article>
+          <article class="collection-card">
+            <img
+              src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=800&q=80"
+              alt="Colección deportiva"
+              loading="lazy"
+            />
+            <div>
+              <h3>Sport Motion</h3>
+              <p>Resistencia, energía y diseño para alto rendimiento.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogo" class="section reveal">
+        <div class="catalog-header">
+          <h2>Catálogo destacado</h2>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Buscar reloj..."
+            aria-label="Buscar producto"
+          />
+        </div>
+        <div class="filters">
+          <button class="btn btn-outline filter-btn active" data-filter="all" type="button">Todo</button>
+          <button class="btn btn-outline filter-btn" data-filter="formal" type="button">Formal</button>
+          <button class="btn btn-outline filter-btn" data-filter="deportivo" type="button">Deportivo</button>
+        </div>
+        <div class="grid" id="productGrid"></div>
+      </section>
+
+      <section id="testimonios" class="section reveal">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="collections">
+          <article class="collection-card quote">
+            <p>“El servicio fue excelente y el reloj llegó rápido. Calidad top.”</p>
+            <strong>— Daniela R.</strong>
+          </article>
+          <article class="collection-card quote">
+            <p>“Me ayudaron a elegir un regalo perfecto para mi esposo.”</p>
+            <strong>— Laura M.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="asesoria" class="section help reveal">
+        <div>
+          <h2>¿Necesitas ayuda personalizada?</h2>
+          <p>
+            Te guiamos según tu estilo, presupuesto y ocasión. Te ayudamos a elegir el reloj
+            perfecto para regalo o uso diario.
+          </p>
+        </div>
+        <a class="btn btn-outline" href="https://wa.me/18095551234" target="_blank" rel="noreferrer"
+          >Hablar por WhatsApp</a
+        >
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© loop.time · Tu tiempo, tu estilo.</p>
+      <button id="openAdminAccess" class="admin-link" type="button">Acceso admin</button>
+    </footer>
+
+    <dialog id="loginDialog">
+      <form method="dialog" class="modal">
+        <h3>Iniciar sesión</h3>
+        <label>
+          Correo electrónico
+          <input type="email" id="email" required placeholder="tu@correo.com" />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" id="password" required placeholder="••••••••" />
+        </label>
+        <div class="modal-actions">
+          <button value="cancel" class="btn btn-outline">Cancelar</button>
+          <button id="submitLogin" value="default" class="btn btn-primary">Entrar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="adminAccessDialog">
+      <form method="dialog" class="modal">
+        <h3>Acceso de administrador</h3>
+        <label>
+          PIN de administrador
+          <input id="adminPin" type="password" placeholder="PIN" required />
+        </label>
+        <div class="modal-actions">
+          <button value="cancel" class="btn btn-outline">Cancelar</button>
+          <button id="unlockAdmin" value="default" class="btn btn-primary">Desbloquear</button>
+        </div>
+        <small>Solo usuarios admin pueden agregar productos.</small>
+      </form>
+    </dialog>
+
+    <section id="adminPanel" class="admin-panel-wrapper hidden">
+      <div class="admin-panel glass reveal visible">
+        <div class="admin-head">
+          <h2>Panel de administración</h2>
+          <p>Espacio privado para crear productos y revisar órdenes.</p>
+        </div>
+        <article class="glass form-card">
+          <h3>Agregar nuevo producto</h3>
+          <form id="adminForm" class="form-grid">
+            <input id="adminName" type="text" placeholder="Nombre" required />
+            <input id="adminAudience" type="text" placeholder="Público (ej: Mujer)" required />
+            <input id="adminStyle" type="text" placeholder="Estilo (ej: Formal)" required />
+            <input id="adminPrice" type="number" min="1" placeholder="Precio (DOP)" required />
+            <input id="adminStock" type="number" min="1" placeholder="Stock" required />
+            <input id="adminImage" type="url" placeholder="URL de imagen" required />
+            <button class="btn btn-primary" type="submit">Agregar producto</button>
+          </form>
+        </article>
+
+        <article class="glass orders-card">
+          <h3>Órdenes simuladas</h3>
+          <ul id="ordersList"></ul>
+        </article>
+      </div>
+    </section>
+
+    <dialog id="cartDialog">
+      <div class="modal">
+        <h3>Tu carrito</h3>
+        <ul id="cartItems"></ul>
+        <p id="cartTotal">Total: RD$0.00</p>
+        <div class="modal-actions">
+          <button id="clearCart" class="btn btn-outline">Vaciar</button>
+          <button id="checkout" class="btn btn-primary">Ir al checkout</button>
+          <button id="closeCart" class="btn btn-outline">Cerrar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="checkoutDialog">
+      <form id="checkoutForm" class="modal">
+        <h3>Finalizar compra</h3>
+        <input id="checkoutName" type="text" placeholder="Nombre completo" required />
+        <input id="checkoutPhone" type="tel" placeholder="Teléfono" required />
+        <input id="checkoutAddress" type="text" placeholder="Dirección" required />
+        <select id="checkoutPayment" required>
+          <option value="">Método de pago</option>
+          <option value="tarjeta">Tarjeta</option>
+          <option value="transferencia">Transferencia</option>
+          <option value="contraentrega">Contraentrega</option>
+        </select>
+        <div class="modal-actions">
+          <button type="button" id="closeCheckout" class="btn btn-outline">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Confirmar compra</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
